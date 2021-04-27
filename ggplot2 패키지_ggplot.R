@@ -9,8 +9,8 @@ p<-ggplot(mtcars,aes(mpg,wt,color=factor(cyl)))
 p+geom_point()
 p+geom_line()
 
-p<-ggplot(diamonds,aes(price)) #´ÙÀÌ¾î¸óµåÀÇ °¡°ÝÀ» º¯¼ö·Î ÁöÁ¤ 
-p+stat_bin(aes(fill=cut),geom = "bar")#»ö»óÀº cutÀ¸·Î, ±×·¡ÇÁ ¸ð¾çÀº ¸·´ë¸ð¾çÀ¸·Î Àû¿ë
+p<-ggplot(diamonds,aes(price)) #ë‹¤ì´ì–´ëª¬ë“œì˜ ê°€ê²©ì„ ë³€ìˆ˜ë¡œ ì§€ì • 
+p+stat_bin(aes(fill=cut),geom = "bar")#ìƒ‰ìƒì€ cutìœ¼ë¡œ, ê·¸ëž˜í”„ ëª¨ì–‘ì€ ë§‰ëŒ€ëª¨ì–‘ìœ¼ë¡œ ì ìš©
 
 p+stat_bin(aes(fill=..density..),geom="bar")
 
@@ -19,19 +19,19 @@ p+stat_bin(aes(fill=cut),geom="area")
 p+stat_bin(aes(color=cut,size=..density..),geom="point")
 
 
-#»êÁ¡µµ¿¡ È¸±Í¼± Àû¿ëÇÏ±â 
+#ì‚°ì ë„ì— íšŒê·€ì„  ì ìš©í•˜ê¸° 
 library(UsingR)
 data("galton")
 p<-ggplot(data=galton,aes(x=parent,y=child))
 p+geom_count()+geom_smooth(method = "lm")
 
 
-#Å×¸¶ Àû¿ë
-#Á¦¸ñ ¼³Á¤ (ggtitle)
+#í…Œë§ˆ ì ìš©
+#ì œëª© ì„¤ì • (ggtitle)
 p<-ggplot(diamonds,aes(carat,price,color=cut))
-p+geom_point()+ggtitle("´ÙÀÌ¾Æ¸óµå ¹«°Ô¿Í °¡°ÝÀÇ »ó°ü°ü°è")
+p+geom_point()+ggtitle("ë‹¤ì´ì•„ëª¬ë“œ ë¬´ê²Œì™€ ê°€ê²©ì˜ ìƒê´€ê´€ê³„")
 
-#theme() ÇÔ¼ö¸¦ÀÌ¿ëÇÏ¿© ±×·¡ÇÁÀÇ ¿ÜÇü ¼Ó¼º ¼³Á¤ 
+#theme() í•¨ìˆ˜ë¥¼ì´ìš©í•˜ì—¬ ê·¸ëž˜í”„ì˜ ì™¸í˜• ì†ì„± ì„¤ì • 
 p + theme(
   title = element_text(color = "blue", size = 25), 
   axis.title = element_text(size = 14, face ="bold"),

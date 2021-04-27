@@ -1,11 +1,11 @@
-#dacast(µ¥ÀÌÅÍ ¼Â, ¾Õº¯¼ö~ µŞº¯¼ö, Àû¿ëÇÔ¼ö) 
+#dacast(ë°ì´í„° ì…‹, ì•ë³€ìˆ˜~ ë’·ë³€ìˆ˜, ì ìš©í•¨ìˆ˜) 
 install.packages("reshape2")
 library(reshape2)
 
 data<-read.csv('data.csv')
 head(data)
 
-#³ĞÀº Çü½ÄÀ¸·Î º¯°æÇÏ±â
+#ë„“ì€ í˜•ì‹ìœ¼ë¡œ ë³€ê²½í•˜ê¸°
 wide<-dcast(data,Customer_ID~Date,sum)
 wide
 
@@ -14,30 +14,30 @@ wide<-read.csv("wide.csv")
 colnames(wide)<-c("Customer_ID","day1","day2","day3","day4","day5","day6","day7")
 wide
 
-#melt(µ¥ÀÌÅÍ ¼Â , id="Ä®·³¸í")
+#melt(ë°ì´í„° ì…‹ , id="ì¹¼ëŸ¼ëª…")
 long<-melt(wide,id="Customer_ID")
 long
 
-#long Ä®·³¸í ¼öÁ¤ÇÏ±â 
+#long ì¹¼ëŸ¼ëª… ìˆ˜ì •í•˜ê¸° 
 name<-c("Customer_ID","Date","Buy")
 colnames(long)<-name
 head(long)
 
-#acacst(µ¥ÀÌÅÍ ¼Â, ¾Õº¯¼ö~µŞº¯¼ö)
+#acacst(ë°ì´í„° ì…‹, ì•ë³€ìˆ˜~ë’·ë³€ìˆ˜)
 
-#µ¥ÀÌÅÍ¼Â ºÒ·¯¿À±â 
+#ë°ì´í„°ì…‹ ë¶ˆëŸ¬ì˜¤ê¸° 
 data("airquality")
-str(airquality) #±¸Á¶ È®ÀÎ 
+str(airquality) #êµ¬ì¡° í™•ì¸ 
 
-#Ä®·³ Á¦¸ñÀ» ´ë¹®ÀÚ·Î ÀÏ°ı º¯°æÇÏ±â
+#ì¹¼ëŸ¼ ì œëª©ì„ ëŒ€ë¬¸ìë¡œ ì¼ê´„ ë³€ê²½í•˜ê¸°
 names(airquality)<-toupper(names(airquality))
 head(airquality)
 
-#melt()ÇÔ¼ö¸¦ ÀÌ¿ëÇÏ¿© ³ĞÀº Çü½ÄÀ» ¿ù.ÀÏÀ» ±âÁØÀ¸·Î ±ä Çü½ÄÀ¸·Î º¯°æÇÏ±â
+#melt()í•¨ìˆ˜ë¥¼ ì´ìš©í•˜ì—¬ ë„“ì€ í˜•ì‹ì„ ì›”.ì¼ì„ ê¸°ì¤€ìœ¼ë¡œ ê¸´ í˜•ì‹ìœ¼ë¡œ ë³€ê²½í•˜ê¸°
 air_melt<-melt(airquality,id=c("MONTH","DAY"),na.rm=T)
 head(air_melt)
 
-#acast()ÇÔ¼ö¸¦ ÀÌ¿ëÇÏ¿© 3Â÷¿øÀ¸·Î ±¸Á¶ º¯°æ
+#acast()í•¨ìˆ˜ë¥¼ ì´ìš©í•˜ì—¬ 3ì°¨ì›ìœ¼ë¡œ êµ¬ì¡° ë³€ê²½
 names(air_melt)<-tolower(names(air_melt))
 acast(air_melt,day~month~variable)
 

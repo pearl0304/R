@@ -1,4 +1,4 @@
-#µ¥ÀÌÅÍ ¼Â ±¸Á¶ º¸±â 
+#ë°ì´í„° ì…‹ êµ¬ì¡° ë³´ê¸° 
 dataset<-read.csv("dataset.csv",header = T)
 head(dataset)
 
@@ -6,59 +6,59 @@ names(dataset)
 attributes(dataset)
 str(dataset)
 
-#µ¥ÀÌÅÍ ¼Â Á¶È¸  : °´Ã¼$º¯¼ö
+#ë°ì´í„° ì…‹ ì¡°íšŒ  : ê°ì²´$ë³€ìˆ˜
 head(dataset$age)
 head(dataset$resident)
 length(dataset$age)
 
-#°áÃøÄ¡ È®ÀÎ
-#summary()ÇÔ¼ö¸¦ »ç¿ëÇÏ¿© °áÃøÄ¡ È®ÀÎ 
+#ê²°ì¸¡ì¹˜ í™•ì¸
+#summary()í•¨ìˆ˜ë¥¼ ì‚¬ìš©í•˜ì—¬ ê²°ì¸¡ì¹˜ í™•ì¸ 
 dataset$price %>% summary()
 
-#°áÃøÄ¡ Á¦°Å 
-#sum()ÇÔ¼öÀÇ ¼Ó¼ºÀ» ÀÌ¿ëÇÏ¿© °áÃøÄ¡ Á¦°Å
+#ê²°ì¸¡ì¹˜ ì œê±° 
+#sum()í•¨ìˆ˜ì˜ ì†ì„±ì„ ì´ìš©í•˜ì—¬ ê²°ì¸¡ì¹˜ ì œê±°
 dataset$price %>%sum(na.rm=T)
 
-#na.omit()ÇÔ¼ö¸¦ ÀÌ¿ëÇÏ¿© °áÃøÄ¡ Á¦°Å
+#na.omit()í•¨ìˆ˜ë¥¼ ì´ìš©í•˜ì—¬ ê²°ì¸¡ì¹˜ ì œê±°
 length(dataset$price)
 price2<-na.omit(dataset$price)
 sum(price2)
 length(price2)
 
-#°áÃøÄ¡ ´ëÃ¼ 
-#°áÃøÄ¡¸¦ 0À¸·Î ´ëÃ¼ÇÏ±â 
+#ê²°ì¸¡ì¹˜ ëŒ€ì²´ 
+#ê²°ì¸¡ì¹˜ë¥¼ 0ìœ¼ë¡œ ëŒ€ì²´í•˜ê¸° 
 x<-dataset$price
 dataset$price[1:30]
 dataset$price2=ifelse(!is.na(x),x,0)
 dataset$price2[1:30]
 
-#°áÃøÄ¡¸¦ Æò±ÕÀ¸·Î ´ëÃ¼ÇÏ±â 
+#ê²°ì¸¡ì¹˜ë¥¼ í‰ê· ìœ¼ë¡œ ëŒ€ì²´í•˜ê¸° 
 y<-dataset$price
 dataset$price[1:30]
 dataset$price3=ifelse(!is.na(y),y,round(mean(y,na.rm=T),2))
 dataset$price3[1:30]
 
-#±Ø´ÜÄ¡ Ã³¸®
-#¹üÁÖÇü º¯¼ö ±Ø´ÜÄ¡ Ã³¸® 
+#ê·¹ë‹¨ì¹˜ ì²˜ë¦¬
+#ë²”ì£¼í˜• ë³€ìˆ˜ ê·¹ë‹¨ì¹˜ ì²˜ë¦¬ 
 table(dataset$gender)
 pie(table(dataset$gender))
 
-#subset()ÇÔ¼ö¸¦ »ç¿ëÇÏ¿© µ¥ÀÌÅÍ Á¤Á¦ÇÏ±â
-#gender º¯¼ö Á¤Á¦ 
+#subset()í•¨ìˆ˜ë¥¼ ì‚¬ìš©í•˜ì—¬ ë°ì´í„° ì •ì œí•˜ê¸°
+#gender ë³€ìˆ˜ ì •ì œ 
 dataset<-subset(dataset,gender==1|gender==2)
 table(dataset$gender)
 
 
-#¿¬¼ÓÇü º¯¼öÀÇ ±Ø´ÜÄ¡ Ã³¸®1
+#ì—°ì†í˜• ë³€ìˆ˜ì˜ ê·¹ë‹¨ì¹˜ ì²˜ë¦¬1
 dataset<-read.csv("dataset.csv",header = T)
 dataset$price[10:40]
 
-#±Ø´ÜÄ¡ º¸±â
+#ê·¹ë‹¨ì¹˜ ë³´ê¸°
 summary(dataset$price)
 
 
-#¿¬¼ÓÇü º¯¼öÀÇ ±Ø´ÜÄ¡ Ã³¸® ¿¹2 
-#age º¯¼öÀÇ µ¥ÀÌÅÍ Á¤Á¦¿Í ½Ã°¢È­
+#ì—°ì†í˜• ë³€ìˆ˜ì˜ ê·¹ë‹¨ì¹˜ ì²˜ë¦¬ ì˜ˆ2 
+#age ë³€ìˆ˜ì˜ ë°ì´í„° ì •ì œì™€ ì‹œê°í™”
 length(dataset$age)
 summary(dataset$age)
 
@@ -66,18 +66,18 @@ dataset2<-subset(dataset,age>=20&age<=69)
 length(dataset2$age)
 summary(dataset2$age)
 
-#age º¯¼öÀÇ box ÇÃ·ÎÆÃÀ¸·Î Æò±Õ ¿¬·É ºĞ¼®
+#age ë³€ìˆ˜ì˜ box í”Œë¡œíŒ…ìœ¼ë¡œ í‰ê·  ì—°ë ¹ ë¶„ì„
 boxplot(dataset2$age)
 
 
-#±Ø´ÜÄ¡¸¦ Ã£±â ¾î·Á¿î °æ¿ì : boxplot ±×·¡ÇÁ È°¿ëÇÏ±â
-#boxplotÀ¸·Î priceÀÇ ±Ø´ÜÄ¡ ½Ã°¢È­
+#ê·¹ë‹¨ì¹˜ë¥¼ ì°¾ê¸° ì–´ë ¤ìš´ ê²½ìš° : boxplot ê·¸ë˜í”„ í™œìš©í•˜ê¸°
+#boxplotìœ¼ë¡œ priceì˜ ê·¹ë‹¨ì¹˜ ì‹œê°í™”
 boxplot(dataset$price)
 
-#±Ø´ÜÄ¡ Åë°è È®ÀÎ
+#ê·¹ë‹¨ì¹˜ í†µê³„ í™•ì¸
 boxplot(dataset$price)$stats
 
-#±Ø´ÜÄ¡¸¦ Á¦°ÅÇÑ ¼­ºê ¼Â ¸¸µé±â 
+#ê·¹ë‹¨ì¹˜ë¥¼ ì œê±°í•œ ì„œë¸Œ ì…‹ ë§Œë“¤ê¸° 
 dataset_sub<-subset(dataset,price>=2.1&price<=7.9)
 boxplot(dataset_sub$price)
 
@@ -85,7 +85,7 @@ boxplot(dataset_sub$price)
 
 
 
-#price º¯¼öÀÇ µ¥ÀÌÅÍ Á¤Á¦¿Í ½Ã°¢È­
+#price ë³€ìˆ˜ì˜ ë°ì´í„° ì •ì œì™€ ì‹œê°í™”
 dataset2<-subset(dataset,price>=2&price<=8)
 length(dataset2$price)
 summary(dataset2$price)
